@@ -8,11 +8,11 @@ import * as UserControlador from '../controladores/userControlador';
 const router = Router();
 
 router.get('/registro', passport.authenticate('jwt', {session:false}), RegistroControlador.registros);
-router.post('/registro', RegistroControlador.novoRegistro);
+router.put('/registro', RegistroControlador.novoRegistro);
 router.get('/registro/search?', passport.authenticate('jwt', {session:false}), RegistroControlador.buscarRegistroPlanta);
 router.get('/registro/:id', passport.authenticate('jwt', {session:false}), RegistroControlador.buscarRegistro);
 router.get('/planta/:nomePlanta', passport.authenticate('jwt', {session:false}), PlantaControlador.nomePlanta);
-router.post('/user', UserControlador.newUser);
+router.put('/user', UserControlador.newUser);
 
 //Subscribe Rota
 router.post('/subscribe', passport.authenticate('jwt', {session:false}), WebPushControlador.subscribe);
