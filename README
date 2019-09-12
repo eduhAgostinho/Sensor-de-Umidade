@@ -1,5 +1,58 @@
+ sistema trabalha com o Angular como um WPA (Progressive Web App) possibilitando o servidor trabalhar com Push Notification.
+Devido a isso, para poder ver todas as funcionalidades do projeto, o Angular deverá ser rodado em modo de produção.
+Configuração:
+
+=======================================================
+Rodar o sistema:
+
+digite no prompt de comando em "./server" e depois em "./client":
+-> npm install;
+
 Rodar Node:
-./Server/npm run dev
+em "./server"
+-> npm run dev
 
 Rodar Angular:
-./client/ng serve
+Como constado anteriormente, para rodar o Angular, é necessário rodar em modo de produção para que os usuários sejam notificados quando alguma planta estiver fora do nível de umidade adequado para seu desenvolvimento.
+Então vá em "./client", e use o comando:
+-> ng build --prod
+
+Após isso, surgirá uma pasta chamada "dist".
+No prompt, entre em "./dist/client".
+É nesse diretório que iremos rodar o Angular, para isso, simularemos um servidor em produção usando o angular-http-server.
+Digite:
+-> npm install angular-http-server -g
+E então,
+-> angular-http-server
+Pronto, ele estará rodando em localhost:8080
+
+========================================================
+O sistema deduz que opera com um sensor de umidade que trabalhe com 10 bits enviando um número de umidade entre 0 (0%) e 1023 (100%).
+
+Mandar requisições:
+localhost:3000/api/registro
+
+corpo da requisição:
+{
+"planta": object id da planta (string),
+"umidade": nível de umidade (number)
+}
+
+IDs das Plantas:
+Morango: 5d262322caaa3e0e809c0c91
+Cacto: 5d262548caaa3e0e809c0c92
+Cogumelo: 5d2625aecaaa3e0e809c0c93
+Violeta: 5d2625e5caaa3e0e809c0c95
+Lavanda: 5d262600caaa3e0e809c0c96
+
+Serviços / Bibliotecas adicionais:
+Além de módulos e frameworks aprendidos durante as aulas, o projeto também foi usado o angular-http-server e web-push.
+
+Considerações:
+
+Devido um problema no git de Luiz Henrique, tivemos que copiar os arquivos localmente e dar commits com o git de Eduardo Agostinho.
+E não foi possível a implementação de testes.
+
+Login:
+username: admin
+senha: dbserver
