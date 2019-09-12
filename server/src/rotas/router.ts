@@ -1,9 +1,9 @@
 import Router from 'express';
-import { RegistroControlador } from './controladores/registroControlador';
-import { PlantaControlador } from './controladores/plantacontrolador';
-import { WebPushControlador } from './controladores/webPushControlador';
+import * as RegistroControlador  from '../controladores/registroControlador';
+import * as PlantaControlador from '../controladores/plantacontrolador';
+import * as WebPushControlador from '../controladores/webPushControlador';
 import passport from 'passport';
-import { UserControlador } from './controladores/userControlador';
+import * as UserControlador from '../controladores/userControlador';
 
 const router = Router();
 
@@ -17,5 +17,5 @@ router.post('/user', UserControlador.newUser);
 //Subscribe Rota
 router.post('/subscribe', passport.authenticate('jwt', {session:false}), WebPushControlador.subscribe);
 
-
+ 
 export {router}; 

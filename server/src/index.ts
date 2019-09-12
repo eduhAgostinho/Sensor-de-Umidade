@@ -1,7 +1,7 @@
 import app from './app';
 import {connect} from 'mongoose';
 
-async function main() {
+(async () =>{
      try {
           const servidorMongo = `mongodb+srv://${process.env.MONGO_HOST}:${process.env.MONGO_PASSWORD}@cluster0-wqeu2.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`;
           await connect(servidorMongo, { useNewUrlParser: true });
@@ -13,7 +13,7 @@ async function main() {
           console.log('Erro:');
           console.log(error);
      }
-} 
-main();
+})(); 
+
 
 

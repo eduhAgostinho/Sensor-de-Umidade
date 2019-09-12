@@ -1,7 +1,7 @@
 import passport from 'passport';
 import passportlocal from 'passport-local';
 import passportjwt from 'passport-jwt';
-import { UserRepositorio } from './persistencia/userRepositorio';
+import * as UserRepositorio from './persistencia/userRepositorio';
 import { compare } from 'bcrypt';
 
 

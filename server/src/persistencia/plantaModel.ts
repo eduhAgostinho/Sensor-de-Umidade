@@ -1,6 +1,5 @@
 import { Schema, Document, model} from 'mongoose';
 import { Planta } from '../entidades/planta';
-import { ObjectID } from 'bson';
 
 const PlantaSchema = new Schema({
     nome: { type: String, required: true},

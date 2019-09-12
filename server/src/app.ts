@@ -2,10 +2,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import errorhandler from 'errorhandler';
 import cors from 'cors';
-import { router } from './router';
+import { router } from './rotas/router';
 import webPush from 'web-push'; 
 import path from 'path';
-import { routerAuth } from './authrotas';
+import { routerAuth } from './rotas/authrotas';
 import { pass } from './auth';
 
 const publicKey = 'BLxxlwet7f170fGgMz38wEzrO8cxgC-pWKYUSlILpk0tqOqNZ2Z9xki09Tx-TBmZuXOBq0omLrs38Ohhgvq0osc';
