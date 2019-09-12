@@ -1,0 +1,30 @@
+.umidadeAtualRed {
+    color: red
+}
+
+.umidadeAtualGreen {
+    color: green
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: unser;
+}
+
+.mat-row:nth-child(even) {
+  background-color: white;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: rgb(228, 228, 228);
+}

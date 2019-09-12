@@ -1,0 +1,19 @@
+nav {
+    background-color: rgb(80, 112, 3);
+}
+
+#logo {
+    height: 64px;
+}
+
+@media (max-width: 700px) {
+    #logo {
+        height: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+    #logo {
+        height: 55px;
+    }
+}

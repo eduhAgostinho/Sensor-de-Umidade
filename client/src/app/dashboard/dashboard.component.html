@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<nav>
+    <div class="nav-wrapper">
+        <a [routerLink]="['/']" routerLinkActive="router-link-active"  id="aLogo" class="brand-logo center"><img id="logo" src="../assets/estufaIcon.png" ></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a (click)="logout()">Sign out</a></li>
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>

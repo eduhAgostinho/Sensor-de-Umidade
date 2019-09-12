@@ -1,0 +1,5 @@
+Rodar Node:
+./Server/npm run dev
+
+Rodar Angular:
+./client/ng serve

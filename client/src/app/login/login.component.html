@@ -1,0 +1,24 @@
+<section id="main"> 
+    <header>
+        <img id="logo" src="../../assets/estufaIcon.png"><br>
+        <h1>Welcome!</h1>
+    </header>
+    <main>
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <div *ngIf="erro" class="alert">
+                <span class="closebtn" (click)="erroFalse()">&times;</span> 
+               {{mensagem}}
+            </div>
+            <div class="exemple-container">
+                <mat-form-field>
+                    <input matInput placeholder="Username" required name="username" id="username" [(ngModel)]="user.username" #username="ngModel">
+                </mat-form-field>
+                
+                <mat-form-field >
+                    <input matInput placeholder="Password" type="password" required name="password" id="password" [(ngModel)]="user.password" #password="ngModel">
+                </mat-form-field>
+            </div>
+            <button mat-button type="submit" id="signin" [disabled]="!loginForm.form.valid">Sign in!</button> 
+        </form>
+    </main>
+</section>

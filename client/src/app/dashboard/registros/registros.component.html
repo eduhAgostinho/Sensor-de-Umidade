@@ -1,0 +1,32 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="Planta">
+          <th mat-header-cell *matHeaderCellDef> Planta </th>
+          <td mat-cell *matCellDef="let registros"><a (click)="sendId(registros.planta._id)" [routerLink]="['planta/', registros.planta.nome]"> {{registros.planta.nome}} </a></td>
+        </ng-container>
+
+        <ng-container matColumnDef="Umidade mínima (%)">
+          <th mat-header-cell *matHeaderCellDef> Umidade Mínima (%) </th>
+          <td mat-cell *matCellDef="let registros"> {{registros.planta.minUmidade}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Umidade máxima (%)">
+          <th mat-header-cell *matHeaderCellDef> Umidade Máxima (%) </th>
+          <td mat-cell *matCellDef="let registros"> {{registros.planta.maxUmidade}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Umidade Atual (%)">
+            <th mat-header-cell *matHeaderCellDef> Umidada Atual (%) </th>
+            <td mat-cell [ngClass]="(registros.umidade>registros.planta.maxUmidade) || (registros.umidade<registros.planta.minUmidade)?'umidadeAtualRed':'umidadeAtualGreen'" *matCellDef="let registros" > {{registros.umidade}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Data">
+            <th mat-header-cell *matHeaderCellDef> Data </th>
+            <td mat-cell *matCellDef="let registros"> {{ registros.data | date: 'd/M/y H:mm'  }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+        <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+
+</table>
+<mat-paginator [pageSizeOptions]="[10, 20, 30, 40, 50]" showFirstLastButtons></mat-paginator>
