@@ -30,12 +30,11 @@ Pronto, ele estará rodando em localhost:8080
 O sistema deduz que opera com um sensor de umidade que trabalhe com 10 bits enviando um número de umidade entre 0 (0%) e 1023 (100%).
 
 Mandar requisições:
-localhost:3000/api/registro
-
+PUT localhost:3000/api/registro - novo registro
 corpo da requisição:
 {
-"planta": object id da planta (string),
-"umidade": nível de umidade (number)
+ "planta": object id da planta (string),
+ "umidade": nível de umidade (number)
 }
 
 IDs das Plantas:
@@ -47,11 +46,6 @@ Lavanda: 5d262600caaa3e0e809c0c96
 
 Serviços / Bibliotecas adicionais:
 Além de módulos e frameworks aprendidos durante as aulas, o projeto também foi usado o angular-http-server e web-push.
-
-Considerações:
-
-Devido um problema no git de Luiz Henrique, tivemos que copiar os arquivos localmente e dar commits com o git de Eduardo Agostinho.
-E não foi possível a implementação de testes.
 
 Login:
 username: admin
