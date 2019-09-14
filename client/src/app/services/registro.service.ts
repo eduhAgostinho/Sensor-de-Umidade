@@ -5,45 +5,37 @@ import { catchError } from 'rxjs/operators';
 import { Registro } from 'src/model/registro';
 import { AuthService } from './auth.service';
 import { Location } from '@angular/common';
+import { environment } from './../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class RegistroService {
 
-  private readonly urlBase = 'http://localhost:3000/api/registro';
-  private readonly urlBase2 = 'http://localhost:3000/api/planta';
-  private token: string = this.auth.token;
+  private readonly urlBase = environment.url;
+
   private httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `Bearer ${this.token}`})
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
   constructor(private http: HttpClient, private auth: AuthService, private location: Location) {}
 
   getRegistros(): Observable<Registro[]> {
-    const options = {
-      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}`})
-    };
-    return this.http.get<Registro[]>(this.urlBase, options)
+    return this.http.get<Registro[]>(`${this.urlBase}/registro`)
     .pipe(catchError(this.tratadorError([])));
   }
 
   getPlantas(id: string): Observable<Registro[]> {
-    const options = {
-      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}`})
-    };
-    return this.http.get<Registro[]>(`${this.urlBase}/search?idPlanta=${id}`, options)
+    return this.http.get<Registro[]>(`${this.urlBase}/registro/search?idPlanta=${id}`)
     .pipe(catchError(this.tratadorError([])));
   }
 
   getPlantaNome(nome: string) {
-    const options = {
-      headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}`})
-    };
-    return this.http.get<Registro>(`${this.urlBase2}/${nome}`, options)
+    return this.http.get<Registro>(`${this.urlBase}/planta/${nome}`)
     .pipe(catchError(this.tratadorError()));
   }
 
   postSubscription(subs) {
-    return this.http.post('http://localhost:3000/api/subscribe', subs, this.httpOptions);
+    return this.http.post(`${this.urlBase}/subscribe`, subs, this.httpOptions);
   }
 
   private tratadorError<T>(resultado?: T) {
@@ -57,7 +49,7 @@ export class RegistroService {
       } else if (erro.status === 401) {
         console.log(localStorage.getItem('token'));
         return of(resultado as T);
-      } 
+      }
     };
   }
 

@@ -1,10 +1,9 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<nav>
-    <div class="nav-wrapper">
-        <a [routerLink]="['/']" routerLinkActive="router-link-active"  id="aLogo" class="brand-logo center"><img id="logo" src="../assets/estufaIcon.png" ></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a (click)="logout()">Sign out</a></li>
-        </ul>
-    </div>
-</nav>
+<mat-toolbar id="toolbarColor" color="primary" class="mat-elevation-z3">
+  <mat-toolbar-row>
+    <a [routerLink]="['/']" routerLinkActive="active"><img id="logo" src="../assets/estufaIcon.png" alt="logo"></a>
+    <nav>
+      <button class="btnSair" mat-button (click)="logout()" routerLinkActive="active">Sair</button>
+    </nav>
+  </mat-toolbar-row>
+</mat-toolbar>
 <router-outlet></router-outlet>

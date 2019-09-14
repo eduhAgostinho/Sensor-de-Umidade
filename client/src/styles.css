@@ -1,2 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  width: 100%;
+}
+
+mat-toolbar-row{
+  display: flex;
+  justify-content: space-between;
+  background-image: rgb(80, 112, 3);
+  width: 100%;
+}
+
+#toolbar{
+  width: 100%;
+  background-color: rgb(80, 112, 3);
+}
+
+mat-toolbar {
+  background-color: rgb(80, 112, 3) !important;
+  display: flex;
+  width: 100%;
+  padding: 0 !important;
+}
+
+a {
+  height: 100%;
+}
+
+mat-toolbar button {
+  height: 100%;
+}

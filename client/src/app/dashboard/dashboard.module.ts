@@ -16,9 +16,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material';
 import { DashboardComponent } from './dashboard.component';
 import { ResolveRegistros } from '../guards/resolve-registros.service';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   imports: [
+    MatButtonModule,
+    MatToolbarModule,
     CommonModule,
     BrowserModule,
     MatTableModule,
@@ -37,7 +41,7 @@ import { ResolveRegistros } from '../guards/resolve-registros.service';
   ],
   declarations: [
     DashboardComponent,
-    RegistrosComponent, 
+    RegistrosComponent,
     RegistroPlantaComponent
   ]
 })

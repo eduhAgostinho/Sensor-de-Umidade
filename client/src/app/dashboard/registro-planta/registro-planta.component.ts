@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { RegistroService } from 'src/services/registro.service';
+import { RegistroService } from '../../services/registro.service';
 import { Subscription } from 'rxjs';
 import { Registro } from 'src/model/registro';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-registro-planta',
@@ -34,7 +34,7 @@ export class RegistroPlantaComponent implements OnInit, OnDestroy {
     }, (error) => {
       if (error.error.status === 401) {
         this.auth.logout();
-      } 
+      }
     });
   }
 

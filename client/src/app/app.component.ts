@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SwPush } from '@angular/service-worker';
 import { Subscription } from 'rxjs';
-import { RegistroService } from 'src/services/registro.service';
+import { RegistroService } from './services/registro.service';
 
 @Component({
   selector: 'app-root',

@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { User } from 'src/model/user';
-import { AuthService } from 'src/services/auth.service';
+import { AuthService } from './../services/auth.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   sub: Subscription;
   erro: boolean;
   mensagem: string;
-  constructor(private auth: AuthService, private route: Router) { }
+  constructor(private auth: AuthService, private route: Router, private storage: StorageService) { }
 
   ngOnInit() {
   }
@@ -26,16 +27,17 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    this.sub = this.auth.login(this.user).subscribe((token) => { 
-      this.erro = false
-      this.auth.setLocalStorage(token) 
-    }, (err) => { 
+    this.sub = this.auth.login(this.user).subscribe((token) => {
+      this.erro = false;
+      this.storage.set('token', token.token);
+      this.route.navigate(['']);
+    }, (err) => {
       this.erro = true;
       this.mensagem = err.error.message;
     });
   }
 
-  erroFalse(){
+  erroFalse() {
     this.erro = false;
   }
 }

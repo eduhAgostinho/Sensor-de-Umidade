@@ -1,5 +1,14 @@
-nav {
-    background-color: rgb(80, 112, 3);
+
+
+li {
+  width: fit-content;
+}
+
+a {
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #logo {
@@ -16,4 +25,18 @@ nav {
     #logo {
         height: 55px;
     }
+}
+
+.logo{
+  width: auto;
+  height: 90%;
+}
+
+
+mat-toolbar button {
+  height: 100%;
+}
+
+nav {
+  height: 100%;
 }
