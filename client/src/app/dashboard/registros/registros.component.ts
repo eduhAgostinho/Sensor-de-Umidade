@@ -29,7 +29,6 @@ export class RegistrosComponent implements OnInit, OnDestroy {
       this.dataSource = new MatTableDataSource<Registro>(this.registros);
       this.dataSource.paginator = this.paginator;
     }, (err) => {
-      console.log(err);
       if (err.error.status === 401) {
         this.auth.logout();
       }

@@ -47,7 +47,6 @@ export class RegistroService {
         alert('Erro Interno');
         return of(resultado as T);
       } else if (erro.status === 401) {
-        console.log(localStorage.getItem('token'));
         return of(resultado as T);
       }
     };

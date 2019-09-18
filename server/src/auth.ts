@@ -11,7 +11,6 @@ export const pass = passport;
 
 pass.use('login', new LocalStrategy(async (user,passwd, done) => {
     const findUser = await UserRepositorio.user(user);
-    console.log(findUser);
     if (findUser === null) {
         return done(undefined, false, {message:'Usuário não encontrado'});
     }
