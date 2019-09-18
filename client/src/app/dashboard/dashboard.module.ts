@@ -18,6 +18,7 @@ import { DashboardComponent } from './dashboard.component';
 import { ResolveRegistros } from '../guards/resolve-registros.service';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import {MatButtonModule} from '@angular/material/button';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
